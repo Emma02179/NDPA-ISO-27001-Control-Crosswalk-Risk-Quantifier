@@ -1,0 +1,423 @@
+/* ---------------------------------------------------------------
+   NDPA 2023 ↔ ISO/IEC 27001 Crosswalk App Theme Design
+   Clean Typography Layout Core
+--------------------------------------------------------------- */
+
+:root {
+  --bg: #F5F6F8;
+  --surface: #FFFFFF;
+  --surface-sunken: #EFF1F5;
+  --border: #E1E4E9;
+  --ink: #14151A;
+  --ink-soft: #6B7280;
+  --primary: #4F46E5;
+  --primary-soft: #EEF0FE;
+  --red: #DC2626;
+  --red-soft: #FCE8E8;
+  --amber: #D97706;
+  --amber-soft: #FBF0DD;
+  --green: #059669;
+  --green-soft: #E3F5EE;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell { 
+  max-width: 1140px; 
+  margin: 0 auto; 
+  padding: 44px 24px 90px; 
+}
+
+/* ---------- MASTHEAD ---------- */
+.masthead { margin-bottom: 32px; }
+.masthead__eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+.masthead__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 12px 0;
+}
+.masthead__sub {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 760px;
+}
+
+/* ---------- NAVIGATION TABS ---------- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 28px;
+}
+.tab {
+  background: transparent;
+  border: none;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  position: relative;
+  bottom: -2px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+.tab:hover { color: var(--ink); }
+.tab--active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* ---------- SYSTEM PANELS ---------- */
+.panel { display: none; }
+.panel--active { display: block; }
+
+/* ---------- UTILITIES / UTILITY BADGES ---------- */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+.badge--mono {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--surface-sunken);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+.badge--primary {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.btn {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn--primary {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+.btn--primary:hover { background: #4338CA; }
+.btn--ghost {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+.btn--ghost:hover { background: var(--surface-sunken); }
+.btn--link-action {
+  background: transparent;
+  color: var(--primary);
+  padding: 0;
+  font-size: 12px;
+}
+.btn--link-action:hover { text-decoration: underline; }
+.btn--danger-link {
+  background: transparent;
+  color: var(--red);
+  padding: 0;
+  font-size: 12px;
+}
+.btn--danger-link:hover { text-decoration: underline; }
+
+/* ---------- RESPONSIVE FORM GRID STRUCTURE ---------- */
+.grid { display: grid; gap: 32px; }
+.grid--2col { grid-template-columns: 1fr 1fr; }
+@media (max-width: 840px) {
+  .grid--2col { grid-template-columns: 1fr; }
+}
+
+.section-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+/* ---------- SEARCH PIPELINE COMPONENT ---------- */
+.search-bar { margin-bottom: 20px; }
+.search-bar__input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--surface);
+}
+.search-bar__input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -1px;
+}
+
+/* ---------- DYNAMIC FRAMEWORK MAPPING TABLE ---------- */
+.x-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.x-table__thead {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  background: var(--surface-sunken);
+  border-bottom: 1px solid var(--border);
+}
+.x-table__th {
+  padding: 14px 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.x-table__tbody .x-table__tr {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.x-table__tbody .x-table__tr:last-child { border-bottom: none; }
+.x-table__td { padding: 20px; }
+.x-table__td:not(:last-child) { border-right: 1px solid var(--border); }
+
+.x-table__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.x-table__summary {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.x-table__pipeline { display: block; }
+
+/* ---------- COMPLIANCE CONTROL CARDS ---------- */
+.iso-box { display: flex; flex-direction: column; gap: 14px; }
+.iso-ctrl {
+  background: var(--surface-sunken);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.iso-ctrl__title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+.iso-ctrl__desc {
+  margin: 6px 0 0 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.rationale {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  background: #FCFCFD;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+.rationale__label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ---------- QUANTITATIVE SIMULATOR MODULE ---------- */
+.quant-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.form-group { margin-bottom: 20px; }
+.form-label {
+  display: block;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.form-input, .form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13.5px;
+}
+.range-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.quant-results {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.ale-headline { margin-bottom: 24px; }
+.ale-headline__label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+.ale-headline__value {
+  font-family: 'Sora', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.percentile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.percentile {
+  background: var(--surface-sunken);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+.percentile__label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 2px;
+}
+.percentile__value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.histogram-wrap { margin-bottom: 24px; }
+#histogramSvg {
+  width: 100%;
+  height: 140px;
+  display: block;
+  background: var(--surface-sunken);
+  border-radius: 8px;
+}
+.histogram-axis {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+/* ---------- CORPORATE RISK REGISTER PANEL ---------- */
+.register-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 40px;
+}
+.summary-stat__label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 4px;
+}
+.summary-stat__value {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.text-danger { color: var(--red); }
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.register-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reg-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.reg-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.reg-card__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 2px 0;
+}
+.reg-card__context {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.reg-card__metrics {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 14px;
+}
